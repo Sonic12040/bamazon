@@ -8,6 +8,7 @@ var connection = mysql.createConnection({
     password: 'password',
     database: 'bamazon'
 });
+var user = '';
 
 connection.connect(function(err) {
     if (err) throw err;
@@ -31,15 +32,15 @@ function loginPrompt() {
     ]).then(function(res) {
         //Switch sending the user down the appropriate view.
         if (res.user === 'customer' && res.pass === 'password') {
-            let user = 'customer';
+            user = 'customer';
             showProducts();
         }
         else if (res.user === 'manager' && res.pass === 'password') {
-            let user = 'manager';
+            user = 'manager';
             managerPrompt();
         }
         else if (res.user === 'supervisor' && res.pass === 'password') {
-            let user = 'supervisor';
+            user = 'supervisor';
             supervisorPrompt();
         } else {
             console.log("Unauthorized Account. Try again.");
@@ -87,10 +88,10 @@ function showProducts() {
             customerPrompt(inventory);
         }
         else if (user === 'manager') {
-            managerPrompt();
+            managerPrompt(inventory);
         } 
         else if (user === 'supervisor'){
-            supervisorPrompt();
+            supervisorPrompt(inventory);
         };
     });
 
@@ -137,8 +138,37 @@ function managerPrompt() {
         }
     ]).then(function(res) {
         console.log(res.managerChoice);
-        managerPrompt();
-    })
+        if (res.managerChoice === 'Show Products') {
+            showProducts();
+        }
+        else if (res.managerChoice === 'Low Inventory Check') {
+            lowInventoryCheck();
+        }
+        else if (res.managerChoice === 'Add to Inventory') {
+            addToInventory();
+        }
+        else if (res.managerChoice === 'New Product') {
+            newItem();
+        } else {
+            console.log('Error Occurred in Choice.');
+            managerPrompt();
+        };
+    });
+};
+
+function lowInventoryCheck() {
+    console.log('Low Inventory Check Success!');
+    managerPrompt();
+};
+
+function addToInventory() {
+    console.log('Add to Inventory Success!');
+    managerPrompt();
+};
+
+function newItem() {
+    console.log('New Item Success!');
+    managerPrompt();
 };
 
 function supervisorPrompt() {
