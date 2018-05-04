@@ -158,7 +158,14 @@ function managerPrompt() {
 
 function lowInventoryCheck() {
     console.log('Low Inventory Check Success!');
-    managerPrompt();
+    connection.query(
+        'SELECT * FROM products WHERE stock_quantity <=5',
+        function (err, inventory) {
+            if (err) throw err;
+            console.table(inventory);
+            managerPrompt();
+        }
+    );
 };
 
 function addToInventory() {
