@@ -18,6 +18,8 @@ If you type in an invalid login, then you will be notified in the console of an 
 
 ## Customer View
 
+![show products](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/showProducts.png)
+
 Upon logging into the customer view, you will be shown a list of the current products, presented as a table in the console object via the console.table npm package.
 
 After the list of products is shown, the customer will be directed to the customer prompt, which asks the customer to type the ID of the product they would like to purchase.
@@ -29,6 +31,8 @@ After selecting a valid product ID, select a quantity you would like to purchase
 Managers are not shown a list of the current products by default. Instead, they are prompted with a menu which allows them to Show Products, Check Low Inventory, Add to Inventory, or New Product.
 
 ### Show Products
+
+![show products](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/showProducts.png)
 
 This will show a list of the current products in the database using console.table, then redirect the manager back to the Manager Prompt.
 
