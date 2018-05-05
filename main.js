@@ -39,10 +39,7 @@ function loginPrompt() {
             user = 'manager';
             managerPrompt();
         }
-        else if (res.user === 'supervisor' && res.pass === 'password') {
-            user = 'supervisor';
-            supervisorPrompt();
-        } else {
+        else {
             console.log("Unauthorized Account. Try again.");
             loginPrompt();
         };
@@ -124,7 +121,7 @@ function makePurchase(product, quantity) {
             console.log('The total came to ' + (quantity * product.price));
             showProducts();
         }
-    )
+    );
 };
 
 function managerPrompt() {
@@ -160,9 +157,9 @@ function lowInventoryCheck() {
     console.log('Low Inventory Check Success!');
     connection.query(
         'SELECT * FROM products WHERE stock_quantity <=5',
-        function (err, inventory) {
+        function (err, lowinventory) {
             if (err) throw err;
-            console.table(inventory);
+            console.table(lowinventory);
             managerPrompt();
         }
     );
@@ -170,14 +167,60 @@ function lowInventoryCheck() {
 
 function addToInventory() {
     console.log('Add to Inventory Success!');
-    managerPrompt();
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'productID',
+            message: 'What is the ID of the product you would like to replenish?'
+        },
+        {
+            type: 'input',
+            name: 'qtyAdded',
+            message: 'How many would you like to add to inventory?'
+        }
+    ]).then(function(res) {
+        let inputs = ['qtyAdded', 'productID'];
+        let query = 'UPDATE products SET stock_quantity = stock_quantity + ? WHERE item_id = ?';
+        connection.query(query, inputs, function(err, res) {
+            if (err) throw err;
+            console.log('Product replenished. Returning to the Main Menu!');
+            managerPrompt();
+        });
+    });
 };
 
 function newItem() {
     console.log('New Item Success!');
-    managerPrompt();
-};
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'addedProduct',
+            message: 'What product would you like to add?'
+        },
+        {
+            type: 'input',
+            name: 'productDept',
+            message: 'What department is this product in?'
+        },
+        {
+            type: 'input',
+            name: 'qtyAdded',
+            message: 'How many of the product would you like to add?'
+        },
+        {
+            type: 'input',
+            name: 'addedProductPrice',
+            message: 'What is the price of the product you are adding?'
+        }
 
-function supervisorPrompt() {
-    console.log('Supervisor Prompt Success!');
+    ]).then(function(res) {
+        let inputs = [res.addedProduct, res.productDept, parseFloat(res.addedProductPrice), parseInt(res.qtyAdded)]
+        let query = 'INSERT INTO products SET product_name=?, department_name=?, price=?, stock_quantity=?'
+        connection.query(query, inputs, function(err, result) {
+            if (err) throw err;
+            console.log('Your product has been added to the database!');
+            managerPrompt();
+        })
+    });
+
 };
