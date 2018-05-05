@@ -4,6 +4,8 @@ A demo version of Amazon, with Customer and Manager views!
 
 ## Before You Start
 
+![schema](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/schema.png)
+
 Be sure to run the schema.sql file to have the database and table created prior to running the app. The app interacts with the database, so the database is required for function.
 
 ## Login

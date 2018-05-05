@@ -47,7 +47,6 @@ function loginPrompt() {
 };
 
 function customerPrompt(inventory) {
-    console.log('Customer Prompt Success!');
     inquirer.prompt([
         {
             type: 'input',
@@ -67,7 +66,6 @@ function customerPrompt(inventory) {
 };
 
 function checkInventory(choice, inventory) {
-    console.log('Check Inventory Success!');
     for (let i = 0; i < inventory.length; i++) {
         if (inventory[i].item_id === choice) {
             return inventory[i];
@@ -77,7 +75,6 @@ function checkInventory(choice, inventory) {
 };
 
 function showProducts() {
-    console.log('Show Products Success!');
     let query = 'SELECT * from products';
     connection.query(query, function(err, inventory) {
         console.table(inventory);
@@ -122,7 +119,6 @@ function makePurchase(product, quantity) {
 };
 
 function managerPrompt() {
-    console.log('Manager Prompt Success!');
     inquirer.prompt([
         {
             type: 'list',
@@ -151,7 +147,6 @@ function managerPrompt() {
 };
 
 function lowInventoryCheck() {
-    console.log('Low Inventory Check Success!');
     connection.query(
         'SELECT * FROM products WHERE stock_quantity <=5',
         function (err, lowinventory) {
@@ -163,7 +158,6 @@ function lowInventoryCheck() {
 };
 
 function addToInventory() {
-    console.log('Add to Inventory Success!');
     inquirer.prompt([
         {
             type: 'input',
@@ -187,7 +181,6 @@ function addToInventory() {
 };
 
 function newItem() {
-    console.log('New Item Success!');
     inquirer.prompt([
         {
             type: 'input',
