@@ -42,6 +42,8 @@ This will show a list of the current products in the database using console.tabl
 
 ### Low Inventory Check
 
+![low inventory](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/lowInventory.png)
+
 This will show a list of the current products in the database, with a qualifier saying that the stock_quantity column of the table has a value of less than five.
 
 ### Add to Inventory
