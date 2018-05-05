@@ -8,7 +8,7 @@ Be sure to run the schema.sql file to have the database and table created prior 
 
 ## Login
 
-[login]: './assets/readme/login.png'
+![login][./assets/readme/login.png]
 
 In order to log in as a customer, please type in customer as the username and password as the password.
 
