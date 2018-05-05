@@ -30,6 +30,8 @@ After selecting a valid product ID, select a quantity you would like to purchase
 
 ## Manager View
 
+![manager prompt](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/managerPrompt.png)
+
 Managers are not shown a list of the current products by default. Instead, they are prompted with a menu which allows them to Show Products, Check Low Inventory, Add to Inventory, or New Product.
 
 ### Show Products
