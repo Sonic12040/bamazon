@@ -1,10 +1,15 @@
 # bamazon
+
 A demo version of Amazon, with Customer and Manager views!
 
 ## Before You Start
+
 Be sure to run the schema.sql file to have the database and table created prior to running the app. The app interacts with the database, so the database is required for function.
 
 ## Login
+
+[login]: './assets/readme/login.png'
+
 In order to log in as a customer, please type in customer as the username and password as the password.
 
 In order to log in as a manager, please type in manager as the username and password as the password.
