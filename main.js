@@ -86,9 +86,6 @@ function showProducts() {
         }
         else if (user === 'manager') {
             managerPrompt(inventory);
-        } 
-        else if (user === 'supervisor'){
-            supervisorPrompt(inventory);
         };
     });
 
