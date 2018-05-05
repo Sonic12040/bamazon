@@ -54,6 +54,8 @@ This will let the manager restock a product by selecting a product ID then the q
 
 ### New Product
 
+![new product](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/newProduct.png)
+
 This will let the manager create a new product in the database. The manager is prompted for the product, department, quantity, and price, then the object is added to the database, and the manager is returned to the manager prompt
 
 
