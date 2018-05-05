@@ -22,6 +22,8 @@ If you type in an invalid login, then you will be notified in the console of an 
 
 Upon logging into the customer view, you will be shown a list of the current products, presented as a table in the console object via the console.table npm package.
 
+![purchase products](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/productPurchase.png)
+
 After the list of products is shown, the customer will be directed to the customer prompt, which asks the customer to type the ID of the product they would like to purchase.
 
 After selecting a valid product ID, select a quantity you would like to purchase. If your quantity of products is available, the purchase will be successful, the database will be updated, and you will be shown a total cost for products purchased. You will then be redirected to the start of the customer view.
