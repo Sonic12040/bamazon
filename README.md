@@ -48,6 +48,8 @@ This will show a list of the current products in the database, with a qualifier 
 
 ### Add to Inventory
 
+![add to inventory](https://github.com/Sonic12040/bamazon/blob/master/assets/readme/addToInventory.png)
+
 This will let the manager restock a product by selecting a product ID then the quantity to add to the database. If the addition is successful, the manager is notified, and then redirected back to the manager prompt.
 
 ### New Product
